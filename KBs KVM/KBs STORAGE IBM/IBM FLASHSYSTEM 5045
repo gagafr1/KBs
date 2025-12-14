@@ -1,0 +1,10 @@
+## ANOTAÇÕES IMPORTANTES LENDO A DOC DA IBM SOBRE A STORAGE FLASH SYSTEMS 5045
+
+https://www.ibm.com/docs/en/flashsystem-5x00/8.6.0?topic=to-storage-pools
+
+
+
+## Informação importante sobre o Tamanho dos mDISKs na hora da criação X migrar entre outra Storage.
+
+You cannot use the data migration function to migrate volumes between parent pools that have different extent sizes. However, you can use volume mirroring to move data to a parent pool that has a different extent size.
+
