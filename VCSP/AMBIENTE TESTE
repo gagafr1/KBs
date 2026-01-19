@@ -1,0 +1,38 @@
+VSS_VCSP-13V_TESTE
+
+10.24.21.40
+
+Administrator
+Z3rF0Qc9Vs7hZ3
+
+VSS_CLOUDCONNECT-13V_TESTE
+CLOUD-CONNECT-V13
+10.24.21.41
+
+Administrtor
+Z3rF0Qc9Vs7hZ3
+
+
+TENANT NAME:
+
+USERNAME: VCSP-13-TESTE
+SENHA: z7FT6ZAhZyFr5H3
+
+
+
+## Criei a primeira VM para ser a OWNER da TELA UI de Gerência do VCSP.
+## hostname: VCSP-13V
+
+## Depois de instalar o Cloud Connect nela criei outra VM para ser a OWNER do VBR(Veeam Backup % Replication)
+## hostname: CLOUD-CONNECT-V13
+
+## Instalei o VBR nela e fiz a adição da Licença que contempla CLOUD CONNECT para poder habilitar a FEATURE.
+
+## Abri a Console e gerei um NOVO CERTIFICADO para poder seguir com a implementação.
+
+## Adicionei o Próprio Servidor como CLOUD-GTW com o DNS NAME: VCSP-13:6180
+
+## Voltei para o Servidor VCSP-13V e nele adicionei o Servidor com o VBR nele para associar o TENANT a Console de VBR.
+
+## Tive que colocar no arquivo hosts de cada Servidor o NOME deles para fazer tudo por DNS NAME e não por IP.
+

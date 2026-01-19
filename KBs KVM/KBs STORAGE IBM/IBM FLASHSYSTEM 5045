@@ -8,3 +8,7 @@ https://www.ibm.com/docs/en/flashsystem-5x00/8.6.0?topic=to-storage-pools
 
 You cannot use the data migration function to migrate volumes between parent pools that have different extent sizes. However, you can use volume mirroring to move data to a parent pool that has a different extent size.
 
+## Limitações
+
+https://www.ibm.com/support/pages/v862x-configuration-limits-and-restrictions-ibm-flashsystem-50x5-and-5200
+
