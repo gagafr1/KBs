@@ -1,0 +1,53 @@
+
+
+
+## Validação iniciais:
+
+
+## Validar nível da floresta e do domínio
+
+
+Get-ADForest | Select-Object ForestMode
+Get-ADDomain | Select-Object DomainMode
+
+
+## Para elevar o nível funcional da floresta, o domínio precisa estar com nível igual ou superior também, não pode ter nenhum erro de replicação e NENHUM DOMAIN CONTROLLER pode ser versão inferior/anterior a versão que será a floresta.
+
+## Listar versão dos S.O dos DC
+
+Get-ADDomainController -Filter * | Select-Object HostName, OperatingSystem
+
+## PASSO A PASSO:
+
+## Validando Replicação:
+
+repadmin /showrepl
+
+repadmin /replsummary
+
+dcdiag /v
+
+## VErificar as FSMO
+
+netdom query fsmo
+
+## Pré-requisitos
+Você precisa atender aos seguintes pré-requisitos para elevar o nível funcional do domínio:
+
+Todos os controladores de domínio no domínio estão executando pelo menos a versão do Windows Server para a qual você deseja aumentar o nível funcional do domínio. Por exemplo, para aumentar o nível funcional do domínio para Windows Server 2025, todos os controladores de domínio no domínio devem estar executando o Windows Server 2025. Se você tiver controladores de domínio executando versões anteriores do Windows Server, deverá atualizá-los para o Windows Server 2025 antes de aumentar o nível funcional do domínio.
+
+Antes de promover um computador que executa o Windows Server 2025 para um controlador de domínio em um domínio existente, esse domínio também deve estar pelo menos no nível funcional do Windows Server 2016. As versões anteriores do Windows Server não dão suporte a controladores de domínio do Windows Server 2025.
+
+Sua floresta e domínio do Active Directory estão operacionais e livres de erros de replicação. Para saber mais sobre erros de replicação, consulte Diagnosticar falhas de replicação do Active Directory.
+
+Identifique todos os seus DCs que hospedam o Catálogo Global e as funções FSMO. Crie e verifique backups desses controladores de domínio antes de fazer alterações.
+
+Você deve ser membro do grupo Administradores da Empresa ou equivalente para aumentar o nível funcional da floresta.
+
+Você deve ter um computador com uma das seguintes RSAT (Ferramentas de Administração de Servidor Remoto) instalada:
+
+Ferramentas de AD DS.
+Módulo do Active Directory para o Windows PowerShell.
+
+https://learn.microsoft.com/pt-br/windows-server/identity/ad-ds/plan/raise-domain-forest-functional-levels?tabs=desktop
+
